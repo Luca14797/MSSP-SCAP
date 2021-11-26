@@ -6,7 +6,7 @@
 
  {string} S = ...;
  {string} J = ...;
- {string} DAYS = ...;
+ {int} DAYS = ...;
  
  {float} I_GYN = ...;
  {float} I_GS = ...;
@@ -15,13 +15,13 @@
  {float} I_DS = ...;
  {float} I_ORTH = ...;
  
- {float} I = ...;
+ {string} I[S] = ...;
  
- float P[I][S] = ...;
+ {int} P[S] = ...;
  
- string R[I][S] = ...;
+ {int} R[S] = ...;
  
- float K[I][S] = ...;
+ {int} K[S] = ...;
  
  int NOT = ...;
  int O_max = ...;
@@ -29,22 +29,22 @@
  int S_max[S] = ...;
  int PS[S] = ...;
  {string} NA[S] = ...;
- float W = ...;
+ int W = ...;
  
- int x[I][S][J][DAYS] = ...;
- int y[S][J][DAYS] = ...;
+ dvar int+ x[I][S][J][DAYS];
+ dvar int+ y[S][J][DAYS];
  
- maximize sum(s in S, i in I, r in J, w in DAYS) (K[i][s] * x[i][s][r][w]);
+ maximize sum(s in S, i in I[s], r in J, w in DAYS) (K[s][i] * x[i][s][r][w]);
  
  subject to
  {
-   forall(i in I, s in S)
+   forall(s in S, i in I[s])
      sum(r in J, w in DAYS)
        x[i][s][r][w] <= 1;
      
    forall(s in S, r in J, w in DAYS)
-     sum(i in I)
-       P[i][s] * x[i][s][r][w] <= O_max * y[s][r][w];
+     sum(i in I[s])
+       P[s][i] * x[i][s][r][w] <= O_max * y[s][r][w];
    
    forall(r in J, w in DAYS)
      sum(s in S)
@@ -66,7 +66,7 @@
      sum(w in DAYS, r in NA[s])
        y[s][r][w] == 0;
        
-   forall(i in I, s in S, r in J, w in DAYS)
+   forall(s in S, i in I[s], r in J, w in DAYS)
      x[i][s][r][w] == 1 || x[i][s][r][w] == 0;
      
    forall(s in S, r in J, w in DAYS)
