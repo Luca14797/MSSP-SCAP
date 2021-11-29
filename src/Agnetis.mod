@@ -7,21 +7,15 @@
  {string} S = ...;
  {string} J = ...;
  {int} DAYS = ...;
+ int N = ...;
  
- {float} I_GYN = ...;
- {float} I_GS = ...;
- {float} I_ENT = ...;
- {float} I_URO = ...;
- {float} I_DS = ...;
- {float} I_ORTH = ...;
+ range surgery = 1..N;
  
- {string} I[S] = ...;
+ string I[S][surgery] = ...;
  
- {int} P[S] = ...;
+ int P[S][surgery] = ...;
  
- {int} R[S] = ...;
- 
- {int} K[S] = ...;
+ int R[S][surgery] = ...;
  
  int NOT = ...;
  int O_max = ...;
@@ -31,19 +25,31 @@
  {string} NA[S] = ...;
  int W = ...;
  
- dvar int+ x[I][S][J][DAYS];
+ int K[S][surgery];
+ execute {
+   for(var s in S) {
+     for(var i in surgery) {
+       if(I[s][i] != 0) {
+       	K[s][i] = P[s][i] * (W - R[s][i]);
+       }       	
+     }     
+   }
+ }
+ 
+ dvar int+ x[surgery][S][J][DAYS];
  dvar int+ y[S][J][DAYS];
  
- maximize sum(s in S, i in I[s], r in J, w in DAYS) (K[s][i] * x[i][s][r][w]);
+ maximize sum(s in S, i in surgery, r in J, w in DAYS) (K[s][i] * x[i][s][r][w]);
  
  subject to
  {
-   forall(s in S, i in I[s])
-     sum(r in J, w in DAYS)
-       x[i][s][r][w] <= 1;
+   forall(s in S, i in surgery)
+     if(I[s][i] != "0")
+       sum(r in J, w in DAYS)
+         x[i][s][r][w] <= 1;
      
    forall(s in S, r in J, w in DAYS)
-     sum(i in I[s])
+     sum(i in surgery : I[s][i] != "0")
        P[s][i] * x[i][s][r][w] <= O_max * y[s][r][w];
    
    forall(r in J, w in DAYS)
@@ -66,8 +72,9 @@
      sum(w in DAYS, r in NA[s])
        y[s][r][w] == 0;
        
-   forall(s in S, i in I[s], r in J, w in DAYS)
-     x[i][s][r][w] == 1 || x[i][s][r][w] == 0;
+   forall(s in S, i in surgery, r in J, w in DAYS)
+     if(I[s][i] != "0")
+       x[i][s][r][w] == 1 || x[i][s][r][w] == 0;
      
    forall(s in S, r in J, w in DAYS)
      y[s][r][w] == 1 || y[s][r][w] == 0;
