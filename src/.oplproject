@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="Agnetis" category="opl">
+		<config default="true" name="Agnetis_A" category="opl">
 			<ref name="Agnetis.mod" type="model">
 			</ref>
-			<ref name="Agnetis.dat" type="data">
+			<ref name="Agnetis_A.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_B" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="Agnetis_B.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_C" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="Agnetis_C.dat" type="data">
 			</ref>
 		</config>
 	</configs>

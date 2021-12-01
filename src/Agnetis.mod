@@ -30,7 +30,7 @@
    for(var s in S) {
      for(var i in surgery) {
        if(I[s][i] != 0) {
-       	K[s][i] = P[s][i] * (W - R[s][i]);
+         K[s][i] = P[s][i] * (W - R[s][i]);
        }       	
      }     
    }
