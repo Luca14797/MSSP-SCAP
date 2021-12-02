@@ -19,6 +19,18 @@
 			<ref name="Agnetis_C.dat" type="data">
 			</ref>
 		</config>
+		<config default="false" name="Agnetis_D" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="Agnetis_D.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_E" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="Agnetis_E.dat" type="data">
+			</ref>
+		</config>
 	</configs>
 	
 </project>
