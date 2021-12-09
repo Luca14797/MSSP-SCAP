@@ -37,6 +37,60 @@
 			<ref name="datasets/Agnetis_5_200.dat" type="data">
 			</ref>
 		</config>
+		<config default="false" name="Agnetis_5_100" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_5_100.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_5_300" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_5_300.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_5_400" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_5_400.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_10_100" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_10_100.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_10_300" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_10_300.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_10_400" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_10_400.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_15_100" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_15_100.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_15_300" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_15_300.dat" type="data">
+			</ref>
+		</config>
+		<config default="false" name="Agnetis_15_400" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_15_400.dat" type="data">
+			</ref>
+		</config>
 	</configs>
 	
 </project>
