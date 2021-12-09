@@ -31,6 +31,12 @@
 			<ref name="Agnetis_E.dat" type="data">
 			</ref>
 		</config>
+		<config default="false" name="Agnetis_5_200" category="opl">
+			<ref name="Agnetis.mod" type="model">
+			</ref>
+			<ref name="datasets/Agnetis_5_200.dat" type="data">
+			</ref>
+		</config>
 	</configs>
 	
 </project>
